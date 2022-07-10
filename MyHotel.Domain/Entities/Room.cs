@@ -13,3 +13,4 @@ namespace MyHotel.Domain.Entities
     }
 }
 
+//aici
