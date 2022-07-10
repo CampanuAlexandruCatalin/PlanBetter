@@ -10,5 +10,6 @@ namespace PlanBetter.Domain.Entities
     {
         public int StudentId { get; set; }
         public string GroupName { get; set; }
+        public ICollection<Exam> Exams { get; set; } = new List<Exam>();
     }
 }
