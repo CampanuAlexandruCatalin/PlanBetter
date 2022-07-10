@@ -7,8 +7,13 @@ namespace PlanBetter.Persistance.Data
 {
     public class PlanBetterDbContext : DbContext
     {
-        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<Course> Courses { get; set; } 
+        public DbSet<Exam> Exams { get; set; } 
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<StudentGroup> StudentGroups { get; set; }
         public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
         

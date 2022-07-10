@@ -16,9 +16,16 @@ namespace PlanBetter.Persistance
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IReservationRepository, ReservationRepository>();
             //services.AddScoped<IGuestRepository, GuestRepository>();
-            services.AddScoped<ITeacherRepository, TeacherRepository>();
-            services.AddScoped<IStudentRepository, StudentRepository > ();
             services.AddScoped<IRoomRepository, RoomRepository>();
+
+            services.AddScoped<IAnswerRepository, AnswerRepository>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<IExamRepository, ExamRepository>();
+            services.AddScoped<IQuestionRepository, QuestionRepository>();
+            services.AddScoped<IStudentGroupRepository, StudentGroupRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            
 
             return services;
         }
