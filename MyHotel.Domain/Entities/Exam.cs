@@ -8,13 +8,13 @@ namespace PlanBetter.Domain.Entities
 {
      public class Exam : BaseEntity
     {
-        public int course_id { get; set; }
-        public int teacher_id { get; set; }
-        public int group_id { get; set; }
-        public DateTime date { get; set; }
-        public DateTime time_start { get; set; }
-        public DateTime time_end { get; set; }
-        public string room_no { get; set; }
-        public string details { get; set; }
+        public int CourseId { get; set; }
+        public int TeacherId { get; set; }
+        public int GroupId { get; set; }
+        public DateTime Date { get; set; }
+        public DateTime TimeStart { get; set; }
+        public DateTime TimeEnd { get; set; }
+        public string RoomNo { get; set; }
+        public string Details { get; set; }
     }
 }

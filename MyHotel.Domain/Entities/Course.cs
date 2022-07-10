@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace PlanBetter.Domain.Entities
 {
-   public class Answer :BaseEntity
+   public class Course :BaseEntity
     {
-        public int QuestionId { get; set; }
-        public string AnswerText { get; set; }
+        public string CourseName { get; set; }
     }
 }

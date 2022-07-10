@@ -9,7 +9,7 @@ namespace PlanBetter.Domain.Entities
 {
    public  class Question : BaseEntity
     {
-        public int course_id { get; set; }
-        public string question_text { get; set; }
+        public int CourseId { get; set; }
+        public string QuestionText { get; set; }
     }
 }
