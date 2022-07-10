@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace PlanBetter.Domain.Entities
 {
-    public class Guest : BaseEntity
+    public class Teacher : BaseEntity
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string Email { get; set; }
-        public string SSN { get; set; }
-        public string PhoneNumber { get; set; }
-        public ICollection<Reservation> Reservations { get; set; }
+        public string email { get; set; }
+        public string password { get; set; }
+        public string fname { get; set; }
+        public string lname { get; set; }
+        public DateTime dob { get; set; }
+        public string mobile { get; set; }
+        public DateTime date_of_join { get; set; }
+        public bool status { get; set; }
+        public string job_title { get; set; }
     }
 }
+
