@@ -13,4 +13,3 @@ namespace MyHotel.Domain.Entities
     }
 }
 
-//ceva
