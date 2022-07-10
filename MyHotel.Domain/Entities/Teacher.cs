@@ -10,7 +10,7 @@ namespace PlanBetter.Domain.Entities
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        public string FNname { get; set; }
+        public string FName { get; set; }
         public string LName { get; set; }
         public DateTime Dob { get; set; }
         public string Mobile { get; set; }
