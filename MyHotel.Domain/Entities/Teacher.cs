@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace PlanBetter.Domain.Entities
 {
-    public class Teacher:BaseEntity
+    public class Teacher : BaseEntity
     {
         public string email { get; set; }
         public string password { get; set; }
