@@ -12,3 +12,5 @@ namespace MyHotel.Domain.Entities
         public ICollection<Reservation> Reservations { get; set; } = new List<Reservation>();
     }
 }
+
+//salut
