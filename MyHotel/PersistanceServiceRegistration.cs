@@ -15,7 +15,9 @@ namespace PlanBetter.Persistance
                 options.UseSqlServer(configuration.GetConnectionString("PlanBetterConnectionString")));
             services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
             services.AddScoped<IReservationRepository, ReservationRepository>();
-            services.AddScoped<IGuestRepository, GuestRepository>();
+            //services.AddScoped<IGuestRepository, GuestRepository>();
+            services.AddScoped<ITeacherRepository, TeacherRepository>();
+            services.AddScoped<IStudentRepository, StudentRepository > ();
             services.AddScoped<IRoomRepository, RoomRepository>();
 
             return services;

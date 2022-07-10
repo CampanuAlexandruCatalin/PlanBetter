@@ -10,5 +10,6 @@ namespace PlanBetter.Domain.Entities
         public DateTime ReservationDate { get; set; }
         public ICollection<Room> Rooms { get; set; }
         public Teacher Teacher { get; set; }
+        public Student Student { get; set; }   
     }
 }

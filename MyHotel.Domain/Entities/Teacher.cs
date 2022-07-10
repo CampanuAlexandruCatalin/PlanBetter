@@ -17,5 +17,6 @@ namespace PlanBetter.Domain.Entities
         public DateTime DateOfJoin { get; set; }
         public bool Status { get; set; }
         public string JobTitle { get; set; }
+        public ICollection<Course> Courses { get; set; }
     }
 }
