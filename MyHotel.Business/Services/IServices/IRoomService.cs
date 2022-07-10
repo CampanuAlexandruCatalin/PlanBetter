@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using MyHotel.Business.Models;
-using MyHotel.Domain.Entities;
+using PlanBetter.Business.Models;
+using PlanBetter.Domain.Entities;
 
-namespace MyHotel.Business.Services.IServices
+namespace PlanBetter.Business.Services.IServices
 {
     public interface IRoomService
     {

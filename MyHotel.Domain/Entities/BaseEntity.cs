@@ -1,4 +1,4 @@
-﻿namespace MyHotel.Domain.Entities
+﻿namespace PlanBetter.Domain.Entities
 {
     public class BaseEntity
     {

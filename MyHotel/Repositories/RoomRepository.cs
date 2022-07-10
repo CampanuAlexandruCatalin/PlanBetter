@@ -1,13 +1,14 @@
-﻿using MyHotel.Data;
-using MyHotel.Domain.Entities;
-using MyHotel.Domain.IRepositories;
-using MyHotel.Persistance.Data;
+﻿using PlanBetter.Domain.Entities;
+using PlanBetter.Domain.IRepositories;
+using PlanBetter.Persistance.Data;
 
-namespace MyHotel.Persistance.Repositories
+namespace PlanBetter.Persistance.Repositories
 {
     public class RoomRepository : BaseRepository<Room>, IRoomRepository
     {
-        public RoomRepository(MyHotelDbContext myHotelDbContext) : base(myHotelDbContext)
+        private static PlanBetterDbContext planBetterDbContext;
+
+        public RoomRepository(PlanBetterDbContext myHotelDbContext) : base(planBetterDbContext)
         {
 
         }

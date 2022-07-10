@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 
-namespace MyHotel.Api
+namespace PlanBetter.Api
 {
     public class Program
     {

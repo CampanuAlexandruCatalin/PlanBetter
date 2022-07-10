@@ -14,7 +14,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyHotel.Domain\MyHotel.Domain.csproj" />
+    <ProjectReference Include="..\MyHotel.Domain\PlanBetter.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\Migrations\" />
   </ItemGroup>
 
 </Project>

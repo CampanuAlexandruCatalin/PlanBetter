@@ -1,15 +1,15 @@
-﻿namespace MyHotel.Persistance
+﻿namespace PlanBetter.Persistance
 {
     internal class Program
     {
         static void Main(string[] args)
         {
-            //var context = new MyHotelDbContext();
+            //var context = new PlanBetterDbContext();
             //var guest = new Guest()
             //{
-            //    FirstName = "Georgiana",
-            //    LastName = "Botez",
-            //    Email = "georgiana.botez@centric.eu"
+            //    FirstName = "nume",
+            //    LastName = "prenume",
+            //    Email = "nume.prenume@domeniu.com"
             //};
 
             //context.Guests.Add(guest);

@@ -1,6 +1,6 @@
-﻿using MyHotel.Business.Models;
+﻿using PlanBetter.Business.Models;
 
-namespace MyHotel.Business.Services.IServices
+namespace PlanBetter.Business.Services.IServices
 {
     public interface IReservationService
     {

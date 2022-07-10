@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyHotel.Domain.IRepositories;
+using PlanBetter.Domain.IRepositories;
 using System.Linq;
-using MyHotel.Domain.Entities;
-using MyHotel.Persistance.Data;
+using PlanBetter.Domain.Entities;
+using PlanBetter.Persistance.Data;
 
-namespace MyHotel.Persistance.Repositories
+namespace PlanBetter.Persistance.Repositories
 {
     public class ReservationRepository : BaseRepository<Reservation>, IReservationRepository
     {
-        public ReservationRepository(MyHotelDbContext myHotelDbContext): base(myHotelDbContext)
+        private static PlanBetterDbContext planBetterDbContext;
+
+        public ReservationRepository(PlanBetterDbContext myHotelDbContext): base(planBetterDbContext)
         {
 
         }

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyHotel.Business.Exceptions
+namespace PlanBetter.Business.Exceptions
 {
     public class NotAvailableException : ApplicationException
     {

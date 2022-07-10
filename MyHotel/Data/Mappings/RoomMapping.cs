@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyHotel.Domain.Entities;
+using PlanBetter.Domain.Entities;
 
-namespace MyHotel.Persistance.Data.Mappings
+namespace PlanBetter.Persistance.Data.Mappings
 {
     internal abstract class RoomMapping
     {

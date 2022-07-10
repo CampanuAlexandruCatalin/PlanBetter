@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyHotel.Domain.Entities
+namespace PlanBetter.Domain.Entities
 {
     public class Room : BaseEntity
     {

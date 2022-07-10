@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MyHotel.Business.Models;
-using MyHotel.Business.Services.IServices;
-using MyHotel.Domain.Entities;
+using PlanBetter.Business.Models;
+using PlanBetter.Business.Services.IServices;
+using PlanBetter.Domain.Entities;
 
-namespace MyHotel.Api.Controllers
+namespace PlanBetter.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

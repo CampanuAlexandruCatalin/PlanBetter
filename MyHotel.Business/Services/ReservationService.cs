@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using AutoMapper;
-using MyHotel.Business.Exceptions;
-using MyHotel.Business.Models;
-using MyHotel.Business.Services.IServices;
-using MyHotel.Domain.Entities;
-using MyHotel.Domain.IRepositories;
+using PlanBetter.Business.Exceptions;
+using PlanBetter.Business.Models;
+using PlanBetter.Business.Services.IServices;
+using PlanBetter.Domain.Entities;
+using PlanBetter.Domain.IRepositories;
 
-namespace MyHotel.Business.Services
+namespace PlanBetter.Business.Services
 {
     public class ReservationService : IReservationService
     {

@@ -1,8 +1,8 @@
 ﻿using FluentValidation;
-using MyHotel.Business.Models;
+using PlanBetter.Business.Models;
 using System;
 
-namespace MyHotel.Api.Validators
+namespace PlanBetter.Api.Validators
 {
     public class ReservationModelValidator : AbstractValidator<ReservationModel>
     {

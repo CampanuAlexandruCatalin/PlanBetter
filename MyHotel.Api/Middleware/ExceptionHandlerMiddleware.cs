@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
-using MyHotel.Business.Exceptions;
+using PlanBetter.Business.Exceptions;
 using Newtonsoft.Json;
 using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace MyHotel.Api.Middleware
+namespace PlanBetter.Api.Middleware
 {
     public class ExceptionHandlerMiddleware
     {

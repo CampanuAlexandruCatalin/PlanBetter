@@ -6,12 +6,12 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
-using MyHotel.Api.Filters;
-using MyHotel.Api.Middleware;
-using MyHotel.Business;
-using MyHotel.Persistance;
+using PlanBetter.Api.Filters;
+using PlanBetter.Api.Middleware;
+using PlanBetter.Business;
+using PlanBetter.Persistance;
 
-namespace MyHotel.Api
+namespace PlanBetter.Api
 {
     public class Startup
     {
@@ -29,7 +29,7 @@ namespace MyHotel.Api
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "MyHotel.Api", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "PlanBetter.Api", Version = "v1" });
             });
             services.AddPersistanceServices(Configuration);
             services.AddBusinessServices();
@@ -42,7 +42,7 @@ namespace MyHotel.Api
             {
                 app.UseDeveloperExceptionPage();
                 app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "MyHotel.Api v1"));
+                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "PlanBetter.Api v1"));
             }
 
             app.UseHttpsRedirection();

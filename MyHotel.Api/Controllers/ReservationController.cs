@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MyHotel.Business.Models;
-using MyHotel.Business.Services;
-using MyHotel.Business.Services.IServices;
+using PlanBetter.Business.Models;
+using PlanBetter.Business.Services;
+using PlanBetter.Business.Services.IServices;
 
-namespace MyHotel.Api.Controllers
+namespace PlanBetter.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

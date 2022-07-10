@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 
-namespace MyHotel.Api.Filters
+namespace PlanBetter.Api.Filters
 {
     public class ValidationFilter : IActionFilter
     {

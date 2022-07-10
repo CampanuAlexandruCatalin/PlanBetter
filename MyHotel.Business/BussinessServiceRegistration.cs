@@ -1,9 +1,9 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
-using MyHotel.Business.Services;
+using PlanBetter.Business.Services;
 using System.Reflection;
-using MyHotel.Business.Services.IServices;
+using PlanBetter.Business.Services.IServices;
 
-namespace MyHotel.Business
+namespace PlanBetter.Business
 {
     public static class BussinessServiceRegistration 
     {

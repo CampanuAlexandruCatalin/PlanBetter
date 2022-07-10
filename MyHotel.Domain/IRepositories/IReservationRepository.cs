@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using MyHotel.Domain.Entities;
+using PlanBetter.Domain.Entities;
 
-namespace MyHotel.Domain.IRepositories
+namespace PlanBetter.Domain.IRepositories
 {
     public interface IReservationRepository : IBaseRepository<Reservation>
     {

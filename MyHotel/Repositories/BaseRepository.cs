@@ -1,17 +1,17 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using MyHotel.Domain.IRepositories;
+using PlanBetter.Domain.IRepositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using MyHotel.Persistance.Data;
+using PlanBetter.Persistance.Data;
 
-namespace MyHotel.Persistance.Repositories
+namespace PlanBetter.Persistance.Repositories
 {
     public class BaseRepository<T> : IBaseRepository<T> where T : class
     {
-        protected readonly MyHotelDbContext _dbContext;
+        protected readonly PlanBetterDbContext _dbContext;
 
-        public BaseRepository(MyHotelDbContext dbContext)
+        public BaseRepository(PlanBetterDbContext dbContext)
         {
             _dbContext = dbContext;
         }

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace MyHotel.Domain.IRepositories
+namespace PlanBetter.Domain.IRepositories
 {
     public interface IBaseRepository<T> where T : class
     {

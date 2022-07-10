@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace MyHotel.Business.Models
+namespace PlanBetter.Business.Models
 {
     public class ReservationModel
     {

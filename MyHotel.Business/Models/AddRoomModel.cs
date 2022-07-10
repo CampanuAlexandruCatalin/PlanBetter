@@ -1,4 +1,4 @@
-﻿namespace MyHotel.Business.Models
+﻿namespace PlanBetter.Business.Models
 {
     public sealed class AddRoomModel
     {

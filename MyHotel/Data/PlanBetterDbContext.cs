@@ -1,23 +1,23 @@
 ﻿using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using MyHotel.Domain.Entities;
-using MyHotel.Persistance.Data.Mappings;
+using PlanBetter.Domain.Entities;
+using PlanBetter.Persistance.Data.Mappings;
 
-namespace MyHotel.Persistance.Data
+namespace PlanBetter.Persistance.Data
 {
-    public class MyHotelDbContext : DbContext
+    public class PlanBetterDbContext : DbContext
     {
         public DbSet<Guest> Guests { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
 
-        public MyHotelDbContext(DbContextOptions<MyHotelDbContext> options)
+        public PlanBetterDbContext(DbContextOptions<PlanBetterDbContext> options)
               : base(options)
         {
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            string connectionString = @"Server=(local)\SQLEXPRESS;Database=MyHotel;Trusted_Connection=True;";
+            string connectionString = @"Server=(local)\SQLEXPRESS;Database=PlanBetter;Trusted_Connection=True;";
             optionsBuilder.UseSqlServer(@connectionString);
         }
 

@@ -1,11 +1,11 @@
 ﻿using System.Collections.Generic;
 using AutoMapper;
-using MyHotel.Business.Models;
-using MyHotel.Business.Services.IServices;
-using MyHotel.Domain.Entities;
-using MyHotel.Domain.IRepositories;
+using PlanBetter.Business.Models;
+using PlanBetter.Business.Services.IServices;
+using PlanBetter.Domain.Entities;
+using PlanBetter.Domain.IRepositories;
 
-namespace MyHotel.Business.Services
+namespace PlanBetter.Business.Services
 {
     public sealed class RoomService : IRoomService
     {

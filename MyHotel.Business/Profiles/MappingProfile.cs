@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using MyHotel.Business.Models;
-using MyHotel.Domain.Entities;
+using PlanBetter.Business.Models;
+using PlanBetter.Domain.Entities;
 
-namespace MyHotel.Business.Profiles
+namespace PlanBetter.Business.Profiles
 {
     public class MappingProfile : Profile
     {
