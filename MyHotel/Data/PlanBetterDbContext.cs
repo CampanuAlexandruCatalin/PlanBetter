@@ -81,13 +81,13 @@ namespace PlanBetter.Persistance.Data
                     Status=false
                 }
             });
-
+            /*
             modelBuilder.Entity<Exam>().HasData(new List<Exam>()
             {
                 new Exam()
                 {
                     Id = 1,
-                 
+                 CourseId = 100,
                     TeacherId = 13,
                     GroupId = 33,
                     Date = System.DateTime.Now,
@@ -100,7 +100,7 @@ namespace PlanBetter.Persistance.Data
                 new Exam()
                 {
                     Id = 2,
-                   
+                   CourseId = 200,
                     TeacherId = 3,
                     GroupId = 43,
                     Date = System.DateTime.Now,
@@ -110,7 +110,8 @@ namespace PlanBetter.Persistance.Data
                     Details="examen scris"
                 }
             });
-
+            
+            */
         }
     }
 }

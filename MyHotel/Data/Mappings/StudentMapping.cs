@@ -14,7 +14,7 @@ namespace PlanBetter.Persistance.Data.Mappings
         {
             modelBuilder.Entity<Student>()
                 .Property(s => s.Id)
-                .HasColumnName("Id")
+                .HasColumnName("StudentId")
                 .IsRequired();
 
             modelBuilder.Entity<Student>()
