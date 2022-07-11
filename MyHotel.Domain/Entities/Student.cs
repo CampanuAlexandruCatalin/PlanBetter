@@ -18,5 +18,6 @@ namespace PlanBetter.Domain.Entities
         public string Mobile { get; set; }
         public DateTime DateOfJoin { get; set; }
         public bool Status { get; set; }
+        public ICollection<Question> Questions { get; set; }
     }
 }
