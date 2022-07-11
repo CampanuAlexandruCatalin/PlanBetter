@@ -10,7 +10,7 @@ namespace PlanBetter.Persistance.Data.Mappings
 {
     internal abstract class StudentMapping
     {
-        internal static void Student(ModelBuilder modelBuilder)
+        internal static void Map(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Student>()
                 .Property(s => s.Id)

@@ -33,57 +33,80 @@ namespace PlanBetter.Persistance.Data
             GuestMapping.Map(modelBuilder);
             ReservationMapping.Map(modelBuilder);
             RoomMapping.Map(modelBuilder);
+            StudentMapping.Map(modelBuilder);
+            ExamMapping.Map(modelBuilder);
             SeedDatabase(modelBuilder);
         }
 
         private static void SeedDatabase(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Room>().HasData(new List<Room>()
+            modelBuilder.Entity<Student>().HasData(new List<Student>()
             {
-                new Room()
+                new Student()
                 {
                     Id = 1,
-                    Capacity = 2,
-                    Price = 50,
-                    Facilities = "bathroom",
-                    RoomNumber = 101,
-                    Status = "available"
+                    Email = "email1@facultate.student.com",
+                    Password = "parola123",
+                    FName = "student",
+                    LName = "unu",
+                    Dob = System.DateTime.Now,
+                    Mobile="1234",
+                    DateOfJoin=System.DateTime.Now,
+                    Status=false
+
                 },
-                new Room()
+                new Student()
                 {
                     Id = 2,
-                    Capacity = 2,
-                    Price = 50,
-                    Facilities = "bathroom",
-                    RoomNumber = 102,
-                    Status = "available"
+                    Email = "email2@facultate.student.com",
+                    Password = "admin123",
+                    FName = "student",
+                    LName = "doi",
+                    Dob = System.DateTime.Now,
+                    Mobile="07unudoi",
+                    DateOfJoin=System.DateTime.Now,
+                    Status=true
                 },
-                new Room()
+                new Student()
                 {
                     Id = 3,
-                    Capacity = 1,
-                    Price = 100,
-                    Facilities = "clean bathroom",
-                    RoomNumber = 103,
-                    Status = "unavailable"
-                },
-                new Room()
+                    Email = "email3@facultate.student.com",
+                    Password = "parola",
+                    FName = "student",
+                    LName = "trei",
+                    Dob = System.DateTime.Now,
+                    Mobile="0777666777",
+                    DateOfJoin=System.DateTime.Now,
+                    Status=false
+                }
+            });
+
+            modelBuilder.Entity<Exam>().HasData(new List<Exam>()
+            {
+                new Exam()
                 {
-                    Id = 4,
-                    Capacity = 1,
-                    Price = 125,
-                    Facilities = "big TV",
-                    RoomNumber = 104,
-                    Status = "available"
+                    Id = 1,
+                    CourseId = 0,
+                    TeacherId = 13,
+                    GroupId = 33,
+                    Date = System.DateTime.Now,
+                    TimeStart = System.DateTime.Now,
+                    TimeEnd = System.DateTime.Now,
+                    RoomNo = "parter",
+                    Details="examen grila"
+
                 },
-                new Room()
+                new Exam()
                 {
-                    Id = 5,
-                    Capacity = 2,
-                    Price = 150,
-                    Facilities = "WIFI",
-                    RoomNumber = 105,
-                    Status = "unavailable"
+                    Id = 2,
+                    CourseId = 10,
+                    TeacherId = 3,
+                    GroupId = 43,
+                    Date = System.DateTime.Now,
+                    TimeStart = System.DateTime.Now,
+                    TimeEnd = System.DateTime.Now,
+                    RoomNo = "etajul2",
+                    Details="examen scris"
                 }
             });
         }
