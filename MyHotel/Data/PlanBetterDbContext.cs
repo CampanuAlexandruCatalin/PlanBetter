@@ -7,6 +7,12 @@ namespace PlanBetter.Persistance.Data
 {
     public class PlanBetterDbContext : DbContext
     {
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            string connectionString = @"Server=(local)\SQLEXPRESS;Database=PlanBetter;Trusted_Connection=True;";
+            optionsBuilder.UseSqlServer(@connectionString);
+        }
+
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Course> Courses { get; set; } 
         public DbSet<Exam> Exams { get; set; } 
@@ -15,19 +21,14 @@ namespace PlanBetter.Persistance.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Room> Rooms { get; set; }
-        public DbSet<Reservation> Reservations { get; set; }
+       public DbSet<Reservation> Reservations { get; set; }
         
 
         public PlanBetterDbContext(DbContextOptions<PlanBetterDbContext> options)
               : base(options)
         {
         }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string connectionString = @"Server=(local)\SQLEXPRESS;Database=PlanBetter;Trusted_Connection=True;";
-            optionsBuilder.UseSqlServer(@connectionString);
-        }
-
+        
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             GuestMapping.Map(modelBuilder);

@@ -4,7 +4,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PlanBetter.Data;
 using PlanBetter.Persistance.Data;
 
 namespace PlanBetter.Data.Migrations
@@ -20,7 +19,7 @@ namespace PlanBetter.Data.Migrations
                 .HasAnnotation("ProductVersion", "5.0.17")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("PlanBetter.Entities.Guest", b =>
+            modelBuilder.Entity("MyHotel.Entities.Guest", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -57,7 +56,7 @@ namespace PlanBetter.Data.Migrations
                     b.ToTable("Guests");
                 });
 
-            modelBuilder.Entity("PlanBetter.Entities.Reservation", b =>
+            modelBuilder.Entity("MyHotel.Entities.Reservation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -84,7 +83,7 @@ namespace PlanBetter.Data.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("PlanBetter.Entities.Room", b =>
+            modelBuilder.Entity("MyHotel.Entities.Room", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -175,7 +174,7 @@ namespace PlanBetter.Data.Migrations
                     b.ToTable("ReservationRoom");
                 });
 
-            modelBuilder.Entity("PlanBetter.Entities.Reservation", b =>
+            modelBuilder.Entity("MyHotel.Entities.Reservation", b =>
                 {
                     b.HasOne("MyHotel.Entities.Guest", "Guest")
                         .WithMany("Reservations")
@@ -186,20 +185,20 @@ namespace PlanBetter.Data.Migrations
 
             modelBuilder.Entity("ReservationRoom", b =>
                 {
-                    b.HasOne("PlanBetter.Entities.Reservation", null)
+                    b.HasOne("MyHotel.Entities.Reservation", null)
                         .WithMany()
                         .HasForeignKey("ReservationsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PlanBetter.Entities.Room", null)
+                    b.HasOne("MyHotel.Entities.Room", null)
                         .WithMany()
                         .HasForeignKey("RoomsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("PlanBetter.Entities.Guest", b =>
+            modelBuilder.Entity("MyHotel.Entities.Guest", b =>
                 {
                     b.Navigation("Reservations");
                 });
