@@ -87,7 +87,7 @@ namespace PlanBetter.Persistance.Data
                 new Exam()
                 {
                     Id = 1,
-                    CourseId = 0,
+                 
                     TeacherId = 13,
                     GroupId = 33,
                     Date = System.DateTime.Now,
@@ -100,7 +100,7 @@ namespace PlanBetter.Persistance.Data
                 new Exam()
                 {
                     Id = 2,
-                    CourseId = 10,
+                   
                     TeacherId = 3,
                     GroupId = 43,
                     Date = System.DateTime.Now,
@@ -110,6 +110,7 @@ namespace PlanBetter.Persistance.Data
                     Details="examen scris"
                 }
             });
+
         }
     }
 }

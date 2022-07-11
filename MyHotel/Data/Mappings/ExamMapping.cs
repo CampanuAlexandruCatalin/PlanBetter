@@ -24,12 +24,12 @@ namespace PlanBetter.Persistance.Data.Mappings
 
             modelBuilder.Entity<Exam>()
                 .Property(s => s.TeacherId)
-                .HasColumnName("Teacher_Id")
+                .HasColumnName("TeacherId")
                 .IsRequired();
 
             modelBuilder.Entity<Exam>()
                  .Property(s => s.GroupId)
-                 .HasColumnName("Gropu_Id")
+                 .HasColumnName("GroupId")
                  .IsRequired();
 
             modelBuilder.Entity<Exam>()
