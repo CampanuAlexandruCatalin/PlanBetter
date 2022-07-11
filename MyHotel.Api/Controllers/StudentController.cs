@@ -15,11 +15,11 @@ namespace PlanBetter.Api.Controllers
                 _studentService = studentService;
             }
 
-            //[HttpGet]
-            //public IActionResult GetAll()
-            //{
-            //    return Ok(_studentService.GetStudents());
-            //}
+            [HttpGet]
+            public IActionResult GetAll()
+            {
+               return Ok(_studentService.GetStudents());
+            }
 
             [HttpGet("{id}")]
             public IActionResult GetById(int id)
