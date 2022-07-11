@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlanBetter.Persistance.Data;
 
-namespace PlanBetter.Data.Migrations
+namespace PlanBetter.Persistance.Data.Migrations
 {
     [DbContext(typeof(PlanBetterDbContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220711114051_AddPlanBetter")]
+    partial class AddPlanBetter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
