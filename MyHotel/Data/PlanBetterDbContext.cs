@@ -81,7 +81,7 @@ namespace PlanBetter.Persistance.Data
                     Status=false
                 }
             });
-
+            /*
             modelBuilder.Entity<Exam>().HasData(new List<Exam>()
             {
                 new Exam()
@@ -110,7 +110,8 @@ namespace PlanBetter.Persistance.Data
                     Details="examen scris"
                 }
             });
-
+            
+            */
         }
     }
 }

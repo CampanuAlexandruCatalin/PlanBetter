@@ -211,23 +211,19 @@ namespace PlanBetter.Persistance.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Exams",
-                columns: new[] { "ExamId", "CourseId", "Date", "Details", "GroupId", "Room", "TeacherId", "TimeEnd", "TimeStart" },
-                values: new object[,]
-                {
-                    { 1, 100, new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(2533), "examen grila", 33, "parter", 13, new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(3029), new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(2793) },
-                    { 2, 200, new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(3702), "examen scris", 43, "etajul2", 3, new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(3714), new DateTime(2022, 7, 11, 15, 11, 30, 773, DateTimeKind.Local).AddTicks(3712) }
-                });
+                table: "Students",
+                columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
+                values: new object[] { 1, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(7704), new DateTime(2022, 7, 11, 15, 15, 35, 207, DateTimeKind.Local).AddTicks(3727), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[,]
-                {
-                    { 1, new DateTime(2022, 7, 11, 15, 11, 30, 772, DateTimeKind.Local).AddTicks(1753), new DateTime(2022, 7, 11, 15, 11, 30, 767, DateTimeKind.Local).AddTicks(2716), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false },
-                    { 2, new DateTime(2022, 7, 11, 15, 11, 30, 772, DateTimeKind.Local).AddTicks(2390), new DateTime(2022, 7, 11, 15, 11, 30, 772, DateTimeKind.Local).AddTicks(2379), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true },
-                    { 3, new DateTime(2022, 7, 11, 15, 11, 30, 772, DateTimeKind.Local).AddTicks(2396), new DateTime(2022, 7, 11, 15, 11, 30, 772, DateTimeKind.Local).AddTicks(2394), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false }
-                });
+                values: new object[] { 2, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8547), new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8534), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true });
+
+            migrationBuilder.InsertData(
+                table: "Students",
+                columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
+                values: new object[] { 3, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8554), new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8551), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reservations_StudentId",
