@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Components;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using PlanBetter.Business.Models;
 using PlanBetter.Business.Services.IServices;
-
+using PlanBetter.Domain.Entities;
 namespace PlanBetter.Api.Controllers
 {
-    [Microsoft.AspNetCore.Components.Route("api/[controller]")]
+    [Route("api/[controller]")]
     [ApiController]
     public class StudentController : ControllerBase
     {
@@ -24,10 +24,10 @@ namespace PlanBetter.Api.Controllers
             [HttpGet("{id}")]
             public IActionResult GetById(int id)
             {
-                var room = _studentService.GetStudent(id);
-                if (room != null)
+                var student = _studentService.GetStudent(id);
+                if (student != null)
                 {
-                    return Ok(room);
+                    return Ok(student);
                 }
 
                 return NotFound();
