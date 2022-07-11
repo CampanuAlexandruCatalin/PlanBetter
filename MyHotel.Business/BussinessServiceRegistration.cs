@@ -18,7 +18,7 @@ namespace PlanBetter.Business
             services.AddScoped<IExamService, ExamService>();
             services.AddScoped<IQuestionService, QuestionService>();
             services.AddScoped<IStudentService, StudentService>();
-
+            services.AddScoped<ITeacherService, TeacherService>();
             return services;
         }
     }
