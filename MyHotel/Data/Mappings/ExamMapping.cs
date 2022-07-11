@@ -10,7 +10,7 @@ namespace PlanBetter.Persistance.Data.Mappings
 {
     internal abstract class ExamMapping
     {
-        internal static void Course(ModelBuilder modelBuilder)
+        internal static void Map(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Exam>()
                 .Property(s => s.Id)
