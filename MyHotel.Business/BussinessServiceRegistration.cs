@@ -12,6 +12,12 @@ namespace PlanBetter.Business
             services.AddScoped<IReservationService, ReservationService>();
             services.AddScoped<IRoomService, RoomService>();
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
+
+            services.AddScoped<IAnswerService, AnswerService>();
+            services.AddScoped<ICourseService, CourseService>();
+            services.AddScoped<IExamService, ExamService>();
+
+            
             return services;
         }
     }

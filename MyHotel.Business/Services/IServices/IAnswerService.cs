@@ -14,7 +14,7 @@ namespace PlanBetter.Business.Services.IServices
 
         public Answer GetAns(int id);
 
-        public int AddAns(AnswerModel exam);
+        public int AddAns(AnswerModel ans);
 
         public void UpdateAns(Answer ans);
 
