@@ -9,8 +9,8 @@ namespace PlanBetter.Business
     {
         public static IServiceCollection AddBusinessServices(this IServiceCollection services)
         {
-            services.AddScoped<IReservationService, ReservationService>();
-            services.AddScoped<IRoomService, RoomService>();
+          
+            
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
 
             services.AddScoped<IAnswerService, AnswerService>();

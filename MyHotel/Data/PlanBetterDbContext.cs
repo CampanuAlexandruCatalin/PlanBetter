@@ -20,8 +20,7 @@ namespace PlanBetter.Persistance.Data
         public DbSet<StudentGroup> StudentGroups { get; set; }
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
-        public DbSet<Room> Rooms { get; set; }
-       public DbSet<Reservation> Reservations { get; set; }
+       
         
 
         public PlanBetterDbContext(DbContextOptions<PlanBetterDbContext> options)
@@ -31,9 +30,8 @@ namespace PlanBetter.Persistance.Data
         
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            GuestMapping.Map(modelBuilder);
-            ReservationMapping.Map(modelBuilder);
-            RoomMapping.Map(modelBuilder);
+       
+            
             StudentMapping.Map(modelBuilder);
             ExamMapping.Map(modelBuilder);
             SeedDatabase(modelBuilder);

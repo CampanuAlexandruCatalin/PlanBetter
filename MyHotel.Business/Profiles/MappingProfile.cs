@@ -8,10 +8,8 @@ namespace PlanBetter.Business.Profiles
     {
         public MappingProfile()
         {
-            CreateMap<Guest, GuestModel>().ReverseMap();
-            CreateMap<Reservation, ReservationModel>().ReverseMap();
-            CreateMap<Room, RoomModel>().ReverseMap();
-            CreateMap<Room, AddRoomModel>().ReverseMap();
+            
+            
             
             CreateMap<Answer, AnswerModel>().ReverseMap();
             CreateMap<Course, CourseModel>().ReverseMap();
