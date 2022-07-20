@@ -3,17 +3,15 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PlanBetter.Persistance.Data;
 
-namespace PlanBetter.Persistance.Data.Migrations
+namespace PlanBetter.Data.Migrations
 {
     [DbContext(typeof(PlanBetterDbContext))]
-    [Migration("20220711121535_AddPlanBetter")]
-    partial class AddPlanBetter
+    partial class DataContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -95,6 +93,9 @@ namespace PlanBetter.Persistance.Data.Migrations
                         .HasColumnType("nvarchar(10)")
                         .HasColumnName("Room");
 
+                    b.Property<int?>("StudentGroupId")
+                        .HasColumnType("int");
+
                     b.Property<int>("TeacherId")
                         .HasColumnType("int")
                         .HasColumnName("TeacherId");
@@ -111,44 +112,9 @@ namespace PlanBetter.Persistance.Data.Migrations
 
                     b.HasIndex("CourseId");
 
+                    b.HasIndex("StudentGroupId");
+
                     b.ToTable("Exams");
-                });
-
-            modelBuilder.Entity("PlanBetter.Domain.Entities.Guest", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Email")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)")
-                        .HasColumnName("Email");
-
-                    b.Property<string>("FirstName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("FirstName");
-
-                    b.Property<string>("LastName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)")
-                        .HasColumnName("LastName");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SSN")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Guest");
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Question", b =>
@@ -164,77 +130,16 @@ namespace PlanBetter.Persistance.Data.Migrations
                     b.Property<string>("QuestionText")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int?>("StudentId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("CourseId");
 
-                    b.ToTable("Questions");
-                });
-
-            modelBuilder.Entity("PlanBetter.Domain.Entities.Reservation", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<DateTime>("CheckIn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("CheckOut")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("GuestId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ReservationDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("TeacherId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("GuestId");
-
                     b.HasIndex("StudentId");
 
-                    b.HasIndex("TeacherId");
-
-                    b.ToTable("Reservations");
-                });
-
-            modelBuilder.Entity("PlanBetter.Domain.Entities.Room", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasColumnName("Id")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Capacity")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Facilities")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Price")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomNumber")
-                        .HasMaxLength(3)
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Rooms");
+                    b.ToTable("Questions");
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Student", b =>
@@ -289,14 +194,14 @@ namespace PlanBetter.Persistance.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Students");
+                    b.ToTable("Student");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            DateOfJoin = new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(7704),
-                            Dob = new DateTime(2022, 7, 11, 15, 15, 35, 207, DateTimeKind.Local).AddTicks(3727),
+                            DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(7686),
+                            Dob = new DateTime(2022, 7, 17, 16, 7, 35, 567, DateTimeKind.Local).AddTicks(7646),
                             Email = "email1@facultate.student.com",
                             FName = "student",
                             LName = "unu",
@@ -307,8 +212,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateOfJoin = new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8547),
-                            Dob = new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8534),
+                            DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8251),
+                            Dob = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8239),
                             Email = "email2@facultate.student.com",
                             FName = "student",
                             LName = "doi",
@@ -319,8 +224,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 3,
-                            DateOfJoin = new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8554),
-                            Dob = new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8551),
+                            DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8257),
+                            Dob = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8254),
                             Email = "email3@facultate.student.com",
                             FName = "student",
                             LName = "trei",
@@ -387,21 +292,6 @@ namespace PlanBetter.Persistance.Data.Migrations
                     b.ToTable("Teachers");
                 });
 
-            modelBuilder.Entity("ReservationRoom", b =>
-                {
-                    b.Property<int>("ReservationsId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RoomsId")
-                        .HasColumnType("int");
-
-                    b.HasKey("ReservationsId", "RoomsId");
-
-                    b.HasIndex("RoomsId");
-
-                    b.ToTable("ReservationRoom");
-                });
-
             modelBuilder.Entity("PlanBetter.Domain.Entities.Answer", b =>
                 {
                     b.HasOne("PlanBetter.Domain.Entities.Question", null)
@@ -427,6 +317,10 @@ namespace PlanBetter.Persistance.Data.Migrations
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("PlanBetter.Domain.Entities.StudentGroup", null)
+                        .WithMany("Exams")
+                        .HasForeignKey("StudentGroupId");
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Question", b =>
@@ -436,40 +330,10 @@ namespace PlanBetter.Persistance.Data.Migrations
                         .HasForeignKey("CourseId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-                });
 
-            modelBuilder.Entity("PlanBetter.Domain.Entities.Reservation", b =>
-                {
-                    b.HasOne("PlanBetter.Domain.Entities.Guest", null)
-                        .WithMany("Reservations")
-                        .HasForeignKey("GuestId");
-
-                    b.HasOne("PlanBetter.Domain.Entities.Student", "Student")
-                        .WithMany()
+                    b.HasOne("PlanBetter.Domain.Entities.Student", null)
+                        .WithMany("Questions")
                         .HasForeignKey("StudentId");
-
-                    b.HasOne("PlanBetter.Domain.Entities.Teacher", "Teacher")
-                        .WithMany()
-                        .HasForeignKey("TeacherId");
-
-                    b.Navigation("Student");
-
-                    b.Navigation("Teacher");
-                });
-
-            modelBuilder.Entity("ReservationRoom", b =>
-                {
-                    b.HasOne("PlanBetter.Domain.Entities.Reservation", null)
-                        .WithMany()
-                        .HasForeignKey("ReservationsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("PlanBetter.Domain.Entities.Room", null)
-                        .WithMany()
-                        .HasForeignKey("RoomsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Course", b =>
@@ -479,14 +343,19 @@ namespace PlanBetter.Persistance.Data.Migrations
                     b.Navigation("Questions");
                 });
 
-            modelBuilder.Entity("PlanBetter.Domain.Entities.Guest", b =>
-                {
-                    b.Navigation("Reservations");
-                });
-
             modelBuilder.Entity("PlanBetter.Domain.Entities.Question", b =>
                 {
                     b.Navigation("Answers");
+                });
+
+            modelBuilder.Entity("PlanBetter.Domain.Entities.Student", b =>
+                {
+                    b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("PlanBetter.Domain.Entities.StudentGroup", b =>
+                {
+                    b.Navigation("Exams");
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Teacher", b =>

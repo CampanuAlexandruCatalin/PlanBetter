@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using PlanBetter.Business.Exceptions;
-using Newtonsoft.Json;
+using System.Text.Json;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -47,7 +47,7 @@ namespace PlanBetter.Api.Middleware
             }
             if (result != string.Empty)
             {
-                result = JsonConvert.SerializeObject(new { error = ex.Message });
+                result = JsonSerializer.Serialize(new { error = ex.Message });
             }
 
             context.Response.StatusCode = (int)httpStatusCode;

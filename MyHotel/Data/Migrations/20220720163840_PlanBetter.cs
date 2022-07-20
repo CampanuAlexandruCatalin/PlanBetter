@@ -1,73 +1,14 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore.Migrations;
 
+#nullable disable
+
 namespace PlanBetter.Persistance.Data.Migrations
 {
-    public partial class AddPlanBetter : Migration
+    public partial class PlanBetter : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Reservations_Guests_GuestId",
-                table: "Reservations");
-
-            migrationBuilder.DropTable(
-                name: "Guests");
-
-            migrationBuilder.DeleteData(
-                table: "Rooms",
-                keyColumn: "Id",
-                keyValue: 1);
-
-            migrationBuilder.DeleteData(
-                table: "Rooms",
-                keyColumn: "Id",
-                keyValue: 2);
-
-            migrationBuilder.DeleteData(
-                table: "Rooms",
-                keyColumn: "Id",
-                keyValue: 3);
-
-            migrationBuilder.DeleteData(
-                table: "Rooms",
-                keyColumn: "Id",
-                keyValue: 4);
-
-            migrationBuilder.DeleteData(
-                table: "Rooms",
-                keyColumn: "Id",
-                keyValue: 5);
-
-            migrationBuilder.AddColumn<int>(
-                name: "StudentId",
-                table: "Reservations",
-                type: "int",
-                nullable: true);
-
-            migrationBuilder.AddColumn<int>(
-                name: "TeacherId",
-                table: "Reservations",
-                type: "int",
-                nullable: true);
-
-            migrationBuilder.CreateTable(
-                name: "Guest",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    SSN = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Guest", x => x.Id);
-                });
-
             migrationBuilder.CreateTable(
                 name: "StudentGroups",
                 columns: table => new
@@ -157,7 +98,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                     TimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Room = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
-                    Details = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false)
+                    Details = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
+                    StudentGroupId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -168,6 +110,11 @@ namespace PlanBetter.Persistance.Data.Migrations
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Exams_StudentGroups_StudentGroupId",
+                        column: x => x.StudentGroupId,
+                        principalTable: "StudentGroups",
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -177,7 +124,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<int>(type: "int", nullable: false),
-                    QuestionText = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    QuestionText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    StudentId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -188,6 +136,11 @@ namespace PlanBetter.Persistance.Data.Migrations
                         principalTable: "Courses",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Questions_Students_StudentId",
+                        column: x => x.StudentId,
+                        principalTable: "Students",
+                        principalColumn: "StudentId");
                 });
 
             migrationBuilder.CreateTable(
@@ -213,27 +166,17 @@ namespace PlanBetter.Persistance.Data.Migrations
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 1, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(7704), new DateTime(2022, 7, 11, 15, 15, 35, 207, DateTimeKind.Local).AddTicks(3727), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false });
+                values: new object[] { 1, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6306), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6257), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 2, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8547), new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8534), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true });
+                values: new object[] { 2, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6319), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6317), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 3, new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8554), new DateTime(2022, 7, 11, 15, 15, 35, 210, DateTimeKind.Local).AddTicks(8551), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reservations_StudentId",
-                table: "Reservations",
-                column: "StudentId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_Reservations_TeacherId",
-                table: "Reservations",
-                column: "TeacherId");
+                values: new object[] { 3, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6323), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6321), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",
@@ -251,49 +194,23 @@ namespace PlanBetter.Persistance.Data.Migrations
                 column: "CourseId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Exams_StudentGroupId",
+                table: "Exams",
+                column: "StudentGroupId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Questions_CourseId",
                 table: "Questions",
                 column: "CourseId");
 
-            migrationBuilder.AddForeignKey(
-                name: "FK_Reservations_Guest_GuestId",
-                table: "Reservations",
-                column: "GuestId",
-                principalTable: "Guest",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Reservations_Students_StudentId",
-                table: "Reservations",
-                column: "StudentId",
-                principalTable: "Students",
-                principalColumn: "StudentId",
-                onDelete: ReferentialAction.Restrict);
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Reservations_Teachers_TeacherId",
-                table: "Reservations",
-                column: "TeacherId",
-                principalTable: "Teachers",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
+            migrationBuilder.CreateIndex(
+                name: "IX_Questions_StudentId",
+                table: "Questions",
+                column: "StudentId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DropForeignKey(
-                name: "FK_Reservations_Guest_GuestId",
-                table: "Reservations");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Reservations_Students_StudentId",
-                table: "Reservations");
-
-            migrationBuilder.DropForeignKey(
-                name: "FK_Reservations_Teachers_TeacherId",
-                table: "Reservations");
-
             migrationBuilder.DropTable(
                 name: "Answers");
 
@@ -301,75 +218,19 @@ namespace PlanBetter.Persistance.Data.Migrations
                 name: "Exams");
 
             migrationBuilder.DropTable(
-                name: "Guest");
+                name: "Questions");
 
             migrationBuilder.DropTable(
                 name: "StudentGroups");
 
             migrationBuilder.DropTable(
-                name: "Students");
-
-            migrationBuilder.DropTable(
-                name: "Questions");
-
-            migrationBuilder.DropTable(
                 name: "Courses");
 
             migrationBuilder.DropTable(
+                name: "Students");
+
+            migrationBuilder.DropTable(
                 name: "Teachers");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Reservations_StudentId",
-                table: "Reservations");
-
-            migrationBuilder.DropIndex(
-                name: "IX_Reservations_TeacherId",
-                table: "Reservations");
-
-            migrationBuilder.DropColumn(
-                name: "StudentId",
-                table: "Reservations");
-
-            migrationBuilder.DropColumn(
-                name: "TeacherId",
-                table: "Reservations");
-
-            migrationBuilder.CreateTable(
-                name: "Guests",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Email = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
-                    FirstName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    LastName = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SSN = table.Column<string>(type: "nvarchar(max)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_Guests", x => x.Id);
-                });
-
-            migrationBuilder.InsertData(
-                table: "Rooms",
-                columns: new[] { "Id", "Capacity", "Facilities", "Price", "RoomNumber", "Status" },
-                values: new object[,]
-                {
-                    { 1, 2, "bathroom", 50, 101, "available" },
-                    { 2, 2, "bathroom", 50, 102, "available" },
-                    { 3, 1, "clean bathroom", 100, 103, "unavailable" },
-                    { 4, 1, "big TV", 125, 104, "available" },
-                    { 5, 2, "WIFI", 150, 105, "unavailable" }
-                });
-
-            migrationBuilder.AddForeignKey(
-                name: "FK_Reservations_Guests_GuestId",
-                table: "Reservations",
-                column: "GuestId",
-                principalTable: "Guests",
-                principalColumn: "Id",
-                onDelete: ReferentialAction.Restrict);
         }
     }
 }
