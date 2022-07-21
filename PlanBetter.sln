@@ -21,7 +21,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04. Domain", "04. Domain", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "99.Tests", "99.Tests", "{B4DC2BB7-EA3E-456A-8530-17F2506D9D12}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject1", "TestProject1\TestProject1.csproj", "{22573EA4-CFA0-4F3A-8020-C8F639F59EFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PalanBetter.IntegrationTests", "TestProject1\PalanBetter.IntegrationTests.csproj", "{22573EA4-CFA0-4F3A-8020-C8F639F59EFE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

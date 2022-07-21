@@ -21,7 +21,7 @@ namespace PlanBetter.Business.Services
             _studentRepository = studentRepository;
             _mapper = mapper;
         }
-        public int AddStudent(StudentModel student)
+        public int AddStudent(AddStudentModel student)
         {
             var newstudent = _studentRepository.Add(_mapper.Map<Student>(student));
             return newstudent.Id;

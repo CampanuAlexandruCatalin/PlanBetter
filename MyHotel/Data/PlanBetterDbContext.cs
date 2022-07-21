@@ -7,11 +7,7 @@ namespace PlanBetter.Persistance.Data
 {
     public class PlanBetterDbContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            string connectionString = @"Server=(local)\SQLEXPRESS;Database=PlanBetter;Trusted_Connection=True;";
-            optionsBuilder.UseSqlServer(@connectionString);
-        }
+        
 
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Course> Courses { get; set; } 

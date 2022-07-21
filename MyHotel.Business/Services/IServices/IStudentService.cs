@@ -14,7 +14,7 @@ namespace PlanBetter.Business.Services.IServices
 
         public Student GetStudent(int id);
 
-        public int AddStudent(StudentModel student);
+        public int AddStudent(AddStudentModel student);
 
         public void UpdateStudent(Student student);
 

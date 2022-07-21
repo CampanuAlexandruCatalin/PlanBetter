@@ -33,9 +33,20 @@ namespace PlanBetter.Api.Controllers
                 return NotFound();
 
             }
+        [HttpPost]
+        public IActionResult Add([FromBody] AddStudentModel model)
+        {
+            return CreatedAtAction(null, _studentService.AddStudent(model));
+        }
+        [HttpPut]
+        public IActionResult Update([FromBody] Student student)
+        {
+            _studentService.UpdateStudent(student);
+            return NoContent();
+        }
 
 
-            [HttpDelete("{id}")]
+        [HttpDelete("{id}")]
             public IActionResult Delete(int id)
             {
                 _studentService.DeleteStudent(id);
