@@ -23,6 +23,16 @@ namespace PlanBetter.Persistance.Data.Mappings
                 .IsRequired();
 
             modelBuilder.Entity<Question>()
+                .Property(s => s.Student_id)
+                .HasColumnName("StudenId")
+                .IsRequired();
+
+            modelBuilder.Entity<Question>()
+                .Property(s => s.isApproval)
+                .HasColumnName("Approval")
+                .IsRequired();
+
+            modelBuilder.Entity<Question>()
                 .Property(s => s.QuestionText)
                 .HasColumnName("Question_text")
                 .HasMaxLength(300)

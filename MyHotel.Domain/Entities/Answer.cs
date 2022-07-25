@@ -10,5 +10,6 @@ namespace PlanBetter.Domain.Entities
     {
         public int QuestionId { get; set; }
         public string AnswerText { get; set; }
+        public int TeacherId { get; set; }
     }
 }

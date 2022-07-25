@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using AutoMapper;
+using PlanBetter.Business.Models;
 using PlanBetter.Business.Services.IServices;
 using PlanBetter.Domain.Entities;
 using PlanBetter.Domain.IRepositories;
@@ -32,6 +33,14 @@ namespace PlanBetter.Business.Services
             throw new NotImplementedException();
         }
 
+        public int AddTeacher(TeacherModel teacher)
+        {
+            throw new NotImplementedException();
+        }
 
+        public void UpdateTeacher(Teacher teacher)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
