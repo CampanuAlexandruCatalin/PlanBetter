@@ -12,5 +12,10 @@ namespace PlanBetter.Business.Services.IServices
         public IEnumerable<Teacher> GetTeachers();
 
         public Teacher GetTeacher(int id);
+        public int AddTeacher(AddTeacherModel teacher);
+
+        public void UpdateTeacher(Teacher teacher);
+
+        public void DeleteTeacher(int id);
     }
 }

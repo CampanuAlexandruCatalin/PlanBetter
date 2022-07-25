@@ -18,7 +18,7 @@ namespace PlanBetter.Business.Profiles
             CreateMap<StudentGroup, StudentGroupModel>().ReverseMap();
             CreateMap<Student, StudentModel>().ReverseMap();
             CreateMap<Student, AddStudentModel>().ReverseMap();
-            CreateMap<Teacher, TeacherModel>().ReverseMap();
+            CreateMap<Teacher, AddTeacherModel>().ReverseMap();
 
         }
        
