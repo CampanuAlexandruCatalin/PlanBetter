@@ -27,6 +27,11 @@ namespace PlanBetter.Business.Services
         {
             return _teacherRepository.GetById(id);
         }
-       
+        public void DeleteTeacher(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
     }
 }
