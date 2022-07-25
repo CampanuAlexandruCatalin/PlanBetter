@@ -33,7 +33,7 @@ namespace PlanBetter.Business.Services
             throw new NotImplementedException();
         }
 
-        public int AddTeacher(TeacherModel teacher)
+        public int AddTeacher(AddTeacherModel teacher)
         {
             throw new NotImplementedException();
         }

@@ -89,8 +89,8 @@ namespace PlanBetter.Data.Migrations
 
                     b.Property<string>("RoomNo")
                         .IsRequired()
-                        .HasMaxLength(10)
-                        .HasColumnType("nvarchar(10)")
+                        .HasMaxLength(20)
+                        .HasColumnType("nvarchar(20)")
                         .HasColumnName("Room");
 
                     b.Property<int?>("StudentGroupId")

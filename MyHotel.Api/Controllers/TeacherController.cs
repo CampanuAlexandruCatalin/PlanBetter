@@ -34,7 +34,7 @@ namespace PlanBetter.Api.Controllers
 
             }
             [HttpPost]
-            public IActionResult Add([FromBody] TeacherModel model)
+            public IActionResult Add([FromBody] AddTeacherModel model)
             {
                 return CreatedAtAction(null, _teacherService.AddTeacher(model));
             }

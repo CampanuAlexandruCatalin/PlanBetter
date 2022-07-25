@@ -49,7 +49,7 @@ namespace PlanBetter.Persistance.Data.Mappings
             modelBuilder.Entity<Exam>()
                 .Property(s => s.RoomNo)
                 .HasColumnName("Room")
-                .HasMaxLength(10)
+                .HasMaxLength(20)
                 .IsRequired();
 
             modelBuilder.Entity<Exam>()
