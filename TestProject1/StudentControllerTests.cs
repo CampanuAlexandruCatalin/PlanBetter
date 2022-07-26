@@ -53,5 +53,62 @@ namespace PlanBetter.IntegrationTests
             studentFromResult.Should().NotBeNull();
             studentFromResult.Id.ToString().Should().Be(studentIdFromResult);
         }
+
+        [TestMethod]
+        public async Task When_UpdateDatabase_ShouldChangeStudentData()
+        {
+            //Arrange
+            var application = new WebApplicationFactory<Startup>()
+        .WithWebHostBuilder(builder =>
+        {
+                // ... Configure test services
+        });
+
+            var client = application.CreateClient();
+            var addStudentModel = new AddStudentModel()
+            {
+                Email = "eueu",
+                Password = "eueu",
+                FName = "Prenume",
+                LName = "Nume",
+                DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8251),
+                Dob = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8239),
+                Mobile = "07548920",
+                Status = true
+            };
+            var result = await client.PostAsJsonAsync("api/student", addStudentModel);
+            result.EnsureSuccessStatusCode();
+            var studentIdFromResult = await result.Content.ReadAsStringAsync();
+
+            var expectedChangeStudentStatus = false;
+            var student = new Student()
+            {
+                Id = Convert.ToInt32(studentIdFromResult),
+                Email = "eueu",
+                Password = "eueu",
+                FName = "Prenume",
+                LName = "Nume",
+                DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8251),
+                Dob = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8239),
+                Mobile = "07548920",
+                Status = expectedChangeStudentStatus
+            };
+            //Act
+            var resultForUpdateStudent = await client.PutAsJsonAsync("api/student", student);
+
+
+            //Assert
+            resultForUpdateStudent.EnsureSuccessStatusCode();
+
+            var resultOfGetStudentById = await client.GetAsync($"api/student/{studentIdFromResult}");
+            resultOfGetStudentById.EnsureSuccessStatusCode();
+            var studentFromResult = await resultOfGetStudentById.Content.ReadFromJsonAsync<Student>();
+
+            studentFromResult.Should().NotBeNull();
+            studentFromResult.Id.ToString().Should().Be(studentIdFromResult);
+
+            studentFromResult.Status.Should().Be(expectedChangeStudentStatus);
+        }
+      
     }
 }
