@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PlanBetter.Business.Services.IServices
 {
-    internal interface IQuestionService
+    public interface IQuestionService
     {
         public IEnumerable<Question> GetQuestions();
 
