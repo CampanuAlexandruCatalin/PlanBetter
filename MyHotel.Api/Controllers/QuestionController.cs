@@ -40,7 +40,7 @@ namespace PlanBetter.Api.Controllers
         public IActionResult Update([FromBody] Question model)
         {
             _questionService.UpdateQuestion(model);
-            return NotFound();
+            return NoContent();
         }
 
 
