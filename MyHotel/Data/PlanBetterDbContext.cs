@@ -184,13 +184,14 @@ namespace PlanBetter.Persistance.Data
                   Id=991,
                   CourseId=200,
                   QuestionText="salut?",
-                  
+                  Student_id=1
                 },
                 new Question()
                 {
                    Id=992,
                   CourseId=100,
                   QuestionText="?salut?",
+                  Student_id=2
                 }
             });
             modelBuilder.Entity<Answer>().HasData(new List<Answer>()
@@ -199,14 +200,16 @@ namespace PlanBetter.Persistance.Data
                 {
                     Id=9991,
                     QuestionId=991,
-                   AnswerText="da"
+                   AnswerText="da",
+                   TeacherId=991
 
                 },
                 new Answer()
                 {
                    Id=9992,
                    QuestionId=992,
-                   AnswerText="da?"
+                   AnswerText="da?",
+                     TeacherId=992
                 }
             });
         }

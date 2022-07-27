@@ -54,30 +54,30 @@ namespace PlanBetter.Persistance.Data.Migrations
                 keyColumn: "StudentId",
                 keyValue: 1,
                 columns: new[] { "DateOfJoin", "Dob" },
-                values: new object[] { new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3982), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3948) });
+                values: new object[] { new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(721), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(685) });
 
             migrationBuilder.UpdateData(
                 table: "Students",
                 keyColumn: "StudentId",
                 keyValue: 2,
                 columns: new[] { "DateOfJoin", "Dob" },
-                values: new object[] { new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3990), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3988) });
+                values: new object[] { new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(730), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(728) });
 
             migrationBuilder.UpdateData(
                 table: "Students",
                 keyColumn: "StudentId",
                 keyValue: 3,
                 columns: new[] { "DateOfJoin", "Dob" },
-                values: new object[] { new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3994), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(3993) });
+                values: new object[] { new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(734), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(732) });
 
             migrationBuilder.InsertData(
                 table: "Teachers",
                 columns: new[] { "Id", "DateOfJoin", "Dob", "Email", "FName", "JobTitle", "LName", "Mobile", "Password", "Status" },
                 values: new object[,]
                 {
-                    { 91, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4023), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4021), "email1@facultate.profesor.com", "profesor", "laborant", "unu", "1234", "parola123", false },
-                    { 92, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4029), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4027), "email2@facultate.profesor.com", "profesor", "doc. ing.", "doi", "07unudoi", "admin123", true },
-                    { 93, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4033), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4032), "email3@facultate.profesor.com", "profesor", "profesor laborant", "trei", "0777666777", "parola", false }
+                    { 91, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(765), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(762), "email1@facultate.profesor.com", "profesor", "laborant", "unu", "1234", "parola123", false },
+                    { 92, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(771), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(769), "email2@facultate.profesor.com", "profesor", "doc. ing.", "doi", "07unudoi", "admin123", true },
+                    { 93, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(776), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(774), "email3@facultate.profesor.com", "profesor", "profesor laborant", "trei", "0777666777", "parola", false }
                 });
 
             migrationBuilder.InsertData(
@@ -95,8 +95,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                 columns: new[] { "ExamId", "CourseId", "Date", "Details", "GroupId", "Room", "StudentGroupId", "TeacherId", "TimeEnd", "TimeStart" },
                 values: new object[,]
                 {
-                    { 551, 100, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4073), "examen grila", 1301, "teams meet", null, 91, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4077), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4075) },
-                    { 552, 200, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4082), "examen scris", 1302, "google meet", null, 92, new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4085), new DateTime(2022, 7, 25, 21, 33, 42, 555, DateTimeKind.Local).AddTicks(4084) }
+                    { 551, 100, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(815), "examen grila", 1301, "teams meet", null, 91, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(819), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(817) },
+                    { 552, 200, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(823), "examen scris", 1302, "google meet", null, 92, new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(826), new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(825) }
                 });
 
             migrationBuilder.InsertData(
@@ -104,19 +104,19 @@ namespace PlanBetter.Persistance.Data.Migrations
                 columns: new[] { "Id", "CourseId", "QuestionText", "StudentId", "Student_id", "isApproval" },
                 values: new object[,]
                 {
-                    { 991, 200, "salut?", null, 0, false },
-                    { 992, 100, "?salut?", null, 0, false }
+                    { 991, 200, "salut?", null, 1, false },
+                    { 992, 100, "?salut?", null, 2, false }
                 });
 
             migrationBuilder.InsertData(
                 table: "Answers",
                 columns: new[] { "Id", "AnswerText", "QuestionId", "TeacherId" },
-                values: new object[] { 9991, "da", 991, 0 });
+                values: new object[] { 9991, "da", 991, 991 });
 
             migrationBuilder.InsertData(
                 table: "Answers",
                 columns: new[] { "Id", "AnswerText", "QuestionId", "TeacherId" },
-                values: new object[] { 9992, "da?", 992, 0 });
+                values: new object[] { 9992, "da?", 992, 992 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
