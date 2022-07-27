@@ -29,7 +29,11 @@ namespace PlanBetter.Business.Services
 
         public void DeleteStudentGroup(int id)
         {
-            throw new NotImplementedException();
+            var studentgroup = _studentGroupRepository.GetById(id);
+            if (studentgroup != null)
+            {
+                _studentGroupRepository.Delete(studentgroup);
+            }
         }
 
         public StudentGroup GetStudentGroup(int id)
