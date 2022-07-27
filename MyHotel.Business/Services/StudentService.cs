@@ -11,12 +11,12 @@ using System.Threading.Tasks;
 
 namespace PlanBetter.Business.Services
 {
-    internal class StudentService : IStudentService
+    public sealed class StudentService : IStudentService
     {
         private readonly IStudentRepository _studentRepository;
         private readonly IMapper _mapper;
 
-        public StudentService(IStudentRepository studentRepository, IMapper mapper)
+        public  StudentService(IStudentRepository studentRepository, IMapper mapper)
         {
             _studentRepository = studentRepository;
             _mapper = mapper;

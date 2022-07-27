@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace PlanBetter.Business.Services
 {
-    internal class StudentGroupService: IStudentGroupService
+    public sealed class StudentGroupService : IStudentGroupService
     {
         private readonly IStudentGroupRepository _studentGroupRepository;
         private readonly IMapper _mapper;
