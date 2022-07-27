@@ -30,17 +30,22 @@ namespace PlanBetter.Business.Services
         }
         public void DeleteTeacher(int id)
         {
-            throw new NotImplementedException();
+            var teacher = _teacherRepository.GetById(id);
+            if (teacher != null)
+            {
+                _teacherRepository.Delete(teacher);
+            }
         }
 
         public int AddTeacher(AddTeacherModel teacher)
         {
-            throw new NotImplementedException();
+            var newtecher = _teacherRepository.Add(_mapper.Map<Teacher>(teacher));
+            return newtecher.Id;
         }
 
         public void UpdateTeacher(Teacher teacher)
         {
-            throw new NotImplementedException();
+            _teacherRepository.Update(teacher);
         }
     }
 }

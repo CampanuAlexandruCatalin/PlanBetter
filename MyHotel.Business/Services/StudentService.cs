@@ -29,7 +29,11 @@ namespace PlanBetter.Business.Services
 
         public void DeleteStudent(int id)
         {
-            throw new NotImplementedException();
+            var student = _studentRepository.GetById(id);
+            if (student != null)
+            {
+                _studentRepository.Delete(student);
+            }
         }
 
         public Student GetStudent(int id)
