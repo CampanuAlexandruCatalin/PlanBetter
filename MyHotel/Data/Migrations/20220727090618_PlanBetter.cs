@@ -97,7 +97,7 @@ namespace PlanBetter.Persistance.Data.Migrations
                     Date = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TimeStart = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TimeEnd = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Room = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Room = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
                     Details = table.Column<string>(type: "nvarchar(300)", maxLength: 300, nullable: false),
                     StudentGroupId = table.Column<int>(type: "int", nullable: true)
                 },
@@ -125,7 +125,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CourseId = table.Column<int>(type: "int", nullable: false),
                     QuestionText = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    StudentId = table.Column<int>(type: "int", nullable: true)
+                    StudentId = table.Column<int>(type: "int", nullable: false),
+                    isApproval = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -140,7 +141,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         name: "FK_Questions_Students_StudentId",
                         column: x => x.StudentId,
                         principalTable: "Students",
-                        principalColumn: "StudentId");
+                        principalColumn: "StudentId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -150,7 +152,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     QuestionId = table.Column<int>(type: "int", nullable: false),
-                    AnswerText = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    AnswerText = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    TeacherId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -164,19 +167,71 @@ namespace PlanBetter.Persistance.Data.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Students",
-                columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 1, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6306), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6257), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false });
+                table: "StudentGroups",
+                columns: new[] { "Id", "GroupName", "StudentId" },
+                values: new object[,]
+                {
+                    { 1301, "c", 1 },
+                    { 1302, "ti", 2 }
+                });
 
             migrationBuilder.InsertData(
                 table: "Students",
                 columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 2, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6319), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6317), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true });
+                values: new object[,]
+                {
+                    { 1, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(727), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(687), "email1@facultate.student.com", "student", "unu", "1234", "parola123", false },
+                    { 2, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(736), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(734), "email2@facultate.student.com", "student", "doi", "07unudoi", "admin123", true },
+                    { 3, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(741), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(739), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false }
+                });
 
             migrationBuilder.InsertData(
-                table: "Students",
-                columns: new[] { "StudentId", "DateOfJoin", "Dob", "Email", "Fname", "Lname", "Mobile", "Pass", "Status" },
-                values: new object[] { 3, new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6323), new DateTime(2022, 7, 20, 19, 38, 39, 853, DateTimeKind.Local).AddTicks(6321), "email3@facultate.student.com", "student", "trei", "0777666777", "parola", false });
+                table: "Teachers",
+                columns: new[] { "Id", "DateOfJoin", "Dob", "Email", "FName", "JobTitle", "LName", "Mobile", "Password", "Status" },
+                values: new object[,]
+                {
+                    { 91, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(803), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(800), "email1@facultate.profesor.com", "profesor", "laborant", "unu", "1234", "parola123", false },
+                    { 92, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(810), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(808), "email2@facultate.profesor.com", "profesor", "doc. ing.", "doi", "07unudoi", "admin123", true },
+                    { 93, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(816), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(813), "email3@facultate.profesor.com", "profesor", "profesor laborant", "trei", "0777666777", "parola", false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "Id", "CourseName", "GroupId", "TeacherId" },
+                values: new object[] { 100, "materie2", 1302, 92 });
+
+            migrationBuilder.InsertData(
+                table: "Courses",
+                columns: new[] { "Id", "CourseName", "GroupId", "TeacherId" },
+                values: new object[] { 200, "materie1", 1301, 91 });
+
+            migrationBuilder.InsertData(
+                table: "Exams",
+                columns: new[] { "ExamId", "CourseId", "Date", "Details", "GroupId", "Room", "StudentGroupId", "TeacherId", "TimeEnd", "TimeStart" },
+                values: new object[,]
+                {
+                    { 551, 100, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(861), "examen grila", 1301, "teams meet", null, 91, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(865), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(863) },
+                    { 552, 200, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(870), "examen scris", 1302, "google meet", null, 92, new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(873), new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(871) }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Questions",
+                columns: new[] { "Id", "CourseId", "QuestionText", "StudentId", "isApproval" },
+                values: new object[,]
+                {
+                    { 991, 200, "salut?", 1, false },
+                    { 992, 100, "?salut?", 2, false }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "Id", "AnswerText", "QuestionId", "TeacherId" },
+                values: new object[] { 9991, "da", 991, 991 });
+
+            migrationBuilder.InsertData(
+                table: "Answers",
+                columns: new[] { "Id", "AnswerText", "QuestionId", "TeacherId" },
+                values: new object[] { 9992, "da?", 992, 992 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Answers_QuestionId",

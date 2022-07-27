@@ -6,6 +6,8 @@ namespace PlanBetter.Business.Models
     {
         public int CourseId { get; set; }
         public string QuestionText { get; set; }
+        public int StudentId { get; set; }
+        public bool isApproval { get; set; }
         public ICollection<AnswerModel> Answers { get; set; }
     }
 }

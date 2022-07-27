@@ -12,8 +12,8 @@ using PlanBetter.Persistance.Data;
 namespace PlanBetter.Persistance.Data.Migrations
 {
     [DbContext(typeof(PlanBetterDbContext))]
-    [Migration("20220727083422_AddAll")]
-    partial class AddAll
+    [Migration("20220727090618_PlanBetter")]
+    partial class PlanBetter
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -164,25 +164,25 @@ namespace PlanBetter.Persistance.Data.Migrations
                         {
                             Id = 551,
                             CourseId = 100,
-                            Date = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(815),
+                            Date = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(861),
                             Details = "examen grila",
                             GroupId = 1301,
                             RoomNo = "teams meet",
                             TeacherId = 91,
-                            TimeEnd = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(819),
-                            TimeStart = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(817)
+                            TimeEnd = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(865),
+                            TimeStart = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(863)
                         },
                         new
                         {
                             Id = 552,
                             CourseId = 200,
-                            Date = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(823),
+                            Date = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(870),
                             Details = "examen scris",
                             GroupId = 1302,
                             RoomNo = "google meet",
                             TeacherId = 92,
-                            TimeEnd = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(826),
-                            TimeStart = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(825)
+                            TimeEnd = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(873),
+                            TimeStart = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(871)
                         });
                 });
 
@@ -200,10 +200,7 @@ namespace PlanBetter.Persistance.Data.Migrations
                     b.Property<string>("QuestionText")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("StudentId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("Student_id")
+                    b.Property<int>("StudentId")
                         .HasColumnType("int");
 
                     b.Property<bool>("isApproval")
@@ -223,7 +220,7 @@ namespace PlanBetter.Persistance.Data.Migrations
                             Id = 991,
                             CourseId = 200,
                             QuestionText = "salut?",
-                            Student_id = 1,
+                            StudentId = 1,
                             isApproval = false
                         },
                         new
@@ -231,7 +228,7 @@ namespace PlanBetter.Persistance.Data.Migrations
                             Id = 992,
                             CourseId = 100,
                             QuestionText = "?salut?",
-                            Student_id = 2,
+                            StudentId = 2,
                             isApproval = false
                         });
                 });
@@ -295,8 +292,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 1,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(721),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(685),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(727),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(687),
                             Email = "email1@facultate.student.com",
                             FName = "student",
                             LName = "unu",
@@ -307,8 +304,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 2,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(730),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(728),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(736),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(734),
                             Email = "email2@facultate.student.com",
                             FName = "student",
                             LName = "doi",
@@ -319,8 +316,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 3,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(734),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(732),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(741),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(739),
                             Email = "email3@facultate.student.com",
                             FName = "student",
                             LName = "trei",
@@ -406,8 +403,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 91,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(765),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(762),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(803),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(800),
                             Email = "email1@facultate.profesor.com",
                             FName = "profesor",
                             JobTitle = "laborant",
@@ -419,8 +416,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 92,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(771),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(769),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(810),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(808),
                             Email = "email2@facultate.profesor.com",
                             FName = "profesor",
                             JobTitle = "doc. ing.",
@@ -432,8 +429,8 @@ namespace PlanBetter.Persistance.Data.Migrations
                         new
                         {
                             Id = 93,
-                            DateOfJoin = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(776),
-                            Dob = new DateTime(2022, 7, 27, 11, 34, 21, 708, DateTimeKind.Local).AddTicks(774),
+                            DateOfJoin = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(816),
+                            Dob = new DateTime(2022, 7, 27, 12, 6, 18, 207, DateTimeKind.Local).AddTicks(813),
                             Email = "email3@facultate.profesor.com",
                             FName = "profesor",
                             JobTitle = "profesor laborant",
@@ -485,7 +482,9 @@ namespace PlanBetter.Persistance.Data.Migrations
 
                     b.HasOne("PlanBetter.Domain.Entities.Student", null)
                         .WithMany("Questions")
-                        .HasForeignKey("StudentId");
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("PlanBetter.Domain.Entities.Course", b =>
