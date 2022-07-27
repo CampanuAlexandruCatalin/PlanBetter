@@ -12,7 +12,7 @@ namespace PlanBetter.Domain.Entities
         public int CourseId { get; set; }
         public string QuestionText { get; set; }
 
-        public int Student_id { get; set; }
+        public int StudentId { get; set; }
         public bool isApproval { get; set; }
         public ICollection<Answer> Answers { get; set; } = new List<Answer>();
     }
