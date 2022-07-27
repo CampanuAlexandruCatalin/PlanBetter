@@ -8,9 +8,9 @@ namespace PlanBetter.Business.Profiles
     {
         public MappingProfile()
         {
-            
-            
-            
+
+
+            CreateMap<Answer, AddAnswerModel>().ReverseMap();
             CreateMap<Answer, AnswerModel>().ReverseMap();
             CreateMap<Course, CourseModel>().ReverseMap();
             CreateMap<Exam, AddExamModel>().ReverseMap();
@@ -19,7 +19,8 @@ namespace PlanBetter.Business.Profiles
             CreateMap<Student, StudentModel>().ReverseMap();
             CreateMap<Student, AddStudentModel>().ReverseMap();
             CreateMap<Teacher, AddTeacherModel>().ReverseMap();
-
+            CreateMap<Teacher, TeacherModel>().ReverseMap();
+            CreateMap<Exam, ExamModel>().ReverseMap();
         }
        
     }
