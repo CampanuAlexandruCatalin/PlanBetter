@@ -18,7 +18,7 @@ namespace UnitTests
             _mapperMock = new Mock<IMapper>();
         }
         [TestMethod]
-        public void DeleteStudent_ShouldNotDeletStudent_WheenStudentExists()
+        public void DeleteStudent_ShouldNotDeletStudent_WhenStudentDoesNotExists()
         {
             // Arrange
             // Could just not mock it, but it's better to be explicit

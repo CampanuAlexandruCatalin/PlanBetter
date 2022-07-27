@@ -13,19 +13,13 @@ using System.Threading.Tasks;
 namespace PalanBetter.IntegrationTests
 {
     [TestClass]
-    public class TeacherControllerTests
+    public class TeacherControllerTests:BaseIntegrationTests
     {
         [TestMethod]
         public async Task When_AddTeacher_ShouldInserTeacher()
         {
             //Arrange
-            var application = new WebApplicationFactory<Startup>()
-        .WithWebHostBuilder(builder =>
-        {
-            // ... Configure test services
-        });
-            var client = application.CreateClient();
-
+            
             var model = new TeacherModel()
             {
                 Email = "profesor1@academic.com",
@@ -39,7 +33,7 @@ namespace PalanBetter.IntegrationTests
                 JobTitle = "inginer",
             };
             //Act
-            var result = await client.PostAsJsonAsync("api/teacher", model);
+            var result = await HttpClient.PostAsJsonAsync("api/teacher", model);
 
 
             //Assert
@@ -50,7 +44,7 @@ namespace PalanBetter.IntegrationTests
             teacherIdFromResult.Should().NotBeNullOrEmpty();
 
 
-            var resultOfGetTeacherById = await client.GetAsync($"api/teacher/{teacherIdFromResult}");
+            var resultOfGetTeacherById = await HttpClient.GetAsync($"api/teacher/{teacherIdFromResult}");
             resultOfGetTeacherById.EnsureSuccessStatusCode();
 
 
@@ -63,13 +57,7 @@ namespace PalanBetter.IntegrationTests
         public async Task When_UpdateDatabase_ShouldChangeTeacherData()
         {
             //Arrange
-            var application = new WebApplicationFactory<Startup>()
-        .WithWebHostBuilder(builder =>
-        {
-            // ... Configure test services
-        });
-
-            var client = application.CreateClient();
+           
             var addTeacherModel = new AddTeacherModel()
             {
                 Email = "profesor1@academic.com",
@@ -82,7 +70,7 @@ namespace PalanBetter.IntegrationTests
                 DateOfJoin = new DateTime(2022, 7, 17, 16, 7, 35, 571, DateTimeKind.Local).AddTicks(8239),
                 JobTitle = "inginer",
             };
-            var result = await client.PostAsJsonAsync("api/teacher", addTeacherModel);
+            var result = await HttpClient.PostAsJsonAsync("api/teacher", addTeacherModel);
             result.EnsureSuccessStatusCode();
             var teacherIdFromResult = await result.Content.ReadAsStringAsync();
 
@@ -101,13 +89,13 @@ namespace PalanBetter.IntegrationTests
                 Status = expectedChangeTeacherStatus
             };
             //Act
-            var resultForUpdateTeacher = await client.PutAsJsonAsync("api/teacher", teacher);
+            var resultForUpdateTeacher = await HttpClient.PutAsJsonAsync("api/teacher", teacher);
 
 
             //Assert
             resultForUpdateTeacher.EnsureSuccessStatusCode();
 
-            var resultOfGetTeacherById = await client.GetAsync($"api/teacher/{teacherIdFromResult}");
+            var resultOfGetTeacherById = await HttpClient.GetAsync($"api/teacher/{teacherIdFromResult}");
             resultOfGetTeacherById.EnsureSuccessStatusCode();
             var teacherFromResult = await resultOfGetTeacherById.Content.ReadFromJsonAsync<Teacher>();
 

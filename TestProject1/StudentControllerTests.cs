@@ -1,5 +1,6 @@
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc.Testing;
+using PalanBetter.IntegrationTests;
 using PlanBetter.Api;
 using PlanBetter.Business.Models;
 using PlanBetter.Domain.Entities;
@@ -8,19 +9,13 @@ using System.Net.Http.Json;
 namespace PlanBetter.IntegrationTests
 {
     [TestClass]
-    public class StudentControllerTests
+    public class StudentControllerTests:BaseIntegrationTests
     {
         [TestMethod]
         public async Task When_AddStudent_ShouldInsertStudent()
         {
             //Arrange
-            var application = new WebApplicationFactory<Startup>()
-        .WithWebHostBuilder(builder =>
-        {
-            // ... Configure test services
-        });
-            var client = application.CreateClient();
-
+          
             var model = new AddStudentModel()
             {
                 Email = "eueu",
@@ -34,7 +29,7 @@ namespace PlanBetter.IntegrationTests
             };
 
             //Act
-            var result = await client.PostAsJsonAsync("api/student", model);
+            var result = await HttpClient.PostAsJsonAsync("api/student", model);
 
 
             //Assert
@@ -45,7 +40,7 @@ namespace PlanBetter.IntegrationTests
             studentIdFromResult.Should().NotBeNullOrEmpty();
 
 
-            var resultOfGetStudentById = await client.GetAsync($"api/student/{studentIdFromResult}");
+            var resultOfGetStudentById = await HttpClient.GetAsync($"api/student/{studentIdFromResult}");
             resultOfGetStudentById.EnsureSuccessStatusCode();
 
 
@@ -58,13 +53,7 @@ namespace PlanBetter.IntegrationTests
         public async Task When_UpdateDatabase_ShouldChangeStudentData()
         {
             //Arrange
-            var application = new WebApplicationFactory<Startup>()
-        .WithWebHostBuilder(builder =>
-        {
-                // ... Configure test services
-        });
-
-            var client = application.CreateClient();
+            
             var addStudentModel = new AddStudentModel()
             {
                 Email = "eueu",
@@ -76,7 +65,7 @@ namespace PlanBetter.IntegrationTests
                 Mobile = "07548920",
                 Status = true
             };
-            var result = await client.PostAsJsonAsync("api/student", addStudentModel);
+            var result = await HttpClient.PostAsJsonAsync("api/student", addStudentModel);
             result.EnsureSuccessStatusCode();
             var studentIdFromResult = await result.Content.ReadAsStringAsync();
 
@@ -94,13 +83,13 @@ namespace PlanBetter.IntegrationTests
                 Status = expectedChangeStudentStatus
             };
             //Act
-            var resultForUpdateStudent = await client.PutAsJsonAsync("api/student", student);
+            var resultForUpdateStudent = await HttpClient.PutAsJsonAsync("api/student", student);
 
 
             //Assert
             resultForUpdateStudent.EnsureSuccessStatusCode();
 
-            var resultOfGetStudentById = await client.GetAsync($"api/student/{studentIdFromResult}");
+            var resultOfGetStudentById = await HttpClient.GetAsync($"api/student/{studentIdFromResult}");
             resultOfGetStudentById.EnsureSuccessStatusCode();
             var studentFromResult = await resultOfGetStudentById.Content.ReadFromJsonAsync<Student>();
 
